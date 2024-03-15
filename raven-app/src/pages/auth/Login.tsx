@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { BiShow, BiHide, BiLogoGithub, BiLogoGoogle, BiLogoFacebookCircle, BiMailSend } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { Box, Button, Flex, IconButton, Text, TextField, Separator} from "@radix-ui/themes";
+import { Box, Button, Flex, IconButton, Text, TextField, Separator } from "@radix-ui/themes";
 import { FrappeError, useFrappeGetCall } from "frappe-react-sdk";
 import { UserContext } from "@/utils/auth/UserProvider";
 import { Loader } from "@/components/common/Loader";

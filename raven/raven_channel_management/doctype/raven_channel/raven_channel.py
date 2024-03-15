@@ -5,6 +5,7 @@ import frappe
 from frappe import _
 from frappe.model.document import Document
 
+
 class RavenChannel(Document):
     # begin: auto-generated types
     # This code is auto-generated. Do not modify anything in this block.
@@ -19,6 +20,7 @@ class RavenChannel(Document):
         is_archived: DF.Check
         is_direct_message: DF.Check
         is_self_message: DF.Check
+        organization: DF.Link | None
         type: DF.Literal["Private", "Public", "Open"]
     # end: auto-generated types
 
@@ -31,7 +33,7 @@ class RavenChannel(Document):
         else:
             frappe.throw(
                 _("You don't have permission to delete this channel."), frappe.PermissionError)
-        
+
         # delete all members when channel is deleted
         frappe.db.delete("Raven Channel Member", {"channel_id": self.name})
 
@@ -44,7 +46,6 @@ class RavenChannel(Document):
             frappe.get_doc({"doctype": "Raven Channel Member",
                             "channel_id": self.name, "user_id": frappe.session.user, "is_admin": 1}).insert()
 
-
     def validate(self):
         # If the user trying to modify the channel is not the owner or channel member, then don't allow
         old_doc = self.get_doc_before_save()
@@ -54,7 +55,7 @@ class RavenChannel(Document):
                 if old_doc.get('channel_name') != self.channel_name:
                     frappe.throw(
                         _("You cannot change the name of a direct message channel"), frappe.ValidationError)
-        
+
         if old_doc and old_doc.get('is_archived') != self.is_archived:
             if frappe.db.exists("Raven Channel Member", {"channel_id": self.name, "user_id": frappe.session.user, "is_admin": 1}):
                 pass

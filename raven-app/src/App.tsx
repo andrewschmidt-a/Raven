@@ -15,7 +15,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/login' lazy={() => import('@/pages/auth/Login')} />
-      <Route path='/login-with-email' lazy={()=> import('@/pages/auth/LoginWithEmail')} />
+      <Route path='/login-with-email' lazy={() => import('@/pages/auth/LoginWithEmail')} />
       <Route path="/" element={<ProtectedRoute />}>
         <Route index element={<ChannelRedirect />} />
         <Route path="channel" element={<MainPage />} >

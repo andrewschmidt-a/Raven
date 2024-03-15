@@ -1,6 +1,6 @@
 import { IonButton, IonContent, IonHeader, IonImg, IonInput, IonItem, IonPage, IonSpinner, IonTitle, IonToolbar, IonText, IonRow } from '@ionic/react'
 import { ErrorBanner } from '../../components/layout'
-import {SuccessCallout, CalloutObject} from '@/components/common/SuccessCallout'
+import { SuccessCallout, CalloutObject } from '@/components/common/SuccessCallout'
 import raven_logo from '../../assets/raven_logo.png'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../utils/auth/UserProvider'
@@ -21,11 +21,11 @@ export const Login = () => {
     const [callout, setCallout] = useState<CalloutObject | null>(null)
     const [isLoginWithEmailLink, setIsLoginWithEmailLink] = useState<boolean>(false)
 
-     // to show/unshow login with email section
-     const onClickLoginWithEmail = () =>{
+    // to show/unshow login with email section
+    const onClickLoginWithEmail = () => {
         setError(null)
         setCallout(null)
-        setIsLoginWithEmailLink(!isLoginWithEmailLink)   
+        setIsLoginWithEmailLink(!isLoginWithEmailLink)
     }
 
     async function onSubmit(values: Inputs) {
@@ -49,79 +49,79 @@ export const Login = () => {
                         </IonToolbar>
                     </IonHeader>
                     {error && <ErrorBanner overrideHeading={error.message} />}
-                    { callout && <SuccessCallout message={callout.message}/> }  
+                    {callout && <SuccessCallout message={callout.message} />}
                     {
-                        isLoginWithEmailLink ? 
-                        <LoginWithEmail 
-                             setCallout={setCallout}
-                             setError={setError}
-                             onClickLoginWithEmail={onClickLoginWithEmail} 
-                         />:
-                         <div>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                        <IonItem>
-                            <Controller
-                                name="email"
-                                control={control}
-                                rules={{
-                                    required: "Email/Username is required",
-                                }}
-                                render={({ field }) => <IonInput
-                                    onIonChange={(e) => field.onChange(e.detail.value)}
-                                    required
-                                    placeholder='jane@example.com'
-                                    className={!!errors?.email ? 'ion-invalid ion-touched' : ''}
-                                    label='Email/Username'
-                                    errorText={errors?.email?.message}
-                                    inputMode='email'
-                                    labelPlacement='stacked'
-                                />}
-                            />
-                        </IonItem>
-                        <IonItem>
-                            <Controller
-                                name="password"
-                                control={control}
-                                rules={{
-                                    required: "Password is required."
-                                }}
-                                render={({ field }) => <IonInput
-                                    type="password"
-                                    onIonChange={(e) => field.onChange(e.detail.value)}
-                                    required
-                                    errorText={errors?.password?.message}
-                                    placeholder='********'
-                                    className={!!errors?.password ? 'ion-invalid ion-touched' : ''}
-                                    label='Password'
-                                    labelPlacement='stacked'
-                                />}
-                            />
-                        </IonItem>
-                        <IonButton
-                            type="submit"
-                            className='ion-margin-top'
-                            expand="block"
-                            >
-                            {loading ? <IonSpinner name="crescent" /> : "Login"}
-                        </IonButton>
-                    </form>
-                    <IonRow class="ion-justify-content-center ion-margin-top ion-margin-bottom">
-                        <IonText color="medium" >
-                            or
-                        </IonText>
-                    </IonRow>
-                    <IonButton
-                        type="button"
-                        onClick={onClickLoginWithEmail}
-                        expand="block"
-                    >
-                        {loading ? <IonSpinner name="crescent" /> : "Login With Email Link"}    
-                    </IonButton>
-            </div>
+                        isLoginWithEmailLink ?
+                            <LoginWithEmail
+                                setCallout={setCallout}
+                                setError={setError}
+                                onClickLoginWithEmail={onClickLoginWithEmail}
+                            /> :
+                            <div>
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <IonItem>
+                                        <Controller
+                                            name="email"
+                                            control={control}
+                                            rules={{
+                                                required: "Email/Username is required",
+                                            }}
+                                            render={({ field }) => <IonInput
+                                                onIonChange={(e) => field.onChange(e.detail.value)}
+                                                required
+                                                placeholder='jane@example.com'
+                                                className={!!errors?.email ? 'ion-invalid ion-touched' : ''}
+                                                label='Email/Username'
+                                                errorText={errors?.email?.message}
+                                                inputMode='email'
+                                                labelPlacement='stacked'
+                                            />}
+                                        />
+                                    </IonItem>
+                                    <IonItem>
+                                        <Controller
+                                            name="password"
+                                            control={control}
+                                            rules={{
+                                                required: "Password is required."
+                                            }}
+                                            render={({ field }) => <IonInput
+                                                type="password"
+                                                onIonChange={(e) => field.onChange(e.detail.value)}
+                                                required
+                                                errorText={errors?.password?.message}
+                                                placeholder='********'
+                                                className={!!errors?.password ? 'ion-invalid ion-touched' : ''}
+                                                label='Password'
+                                                labelPlacement='stacked'
+                                            />}
+                                        />
+                                    </IonItem>
+                                    <IonButton
+                                        type="submit"
+                                        className='ion-margin-top'
+                                        expand="block"
+                                    >
+                                        {loading ? <IonSpinner name="crescent" /> : "Login"}
+                                    </IonButton>
+                                </form>
+                                <IonRow class="ion-justify-content-center ion-margin-top ion-margin-bottom">
+                                    <IonText color="medium" >
+                                        or
+                                    </IonText>
+                                </IonRow>
+                                <IonButton
+                                    type="button"
+                                    onClick={onClickLoginWithEmail}
+                                    expand="block"
+                                >
+                                    {loading ? <IonSpinner name="crescent" /> : "Login With Email Link"}
+                                </IonButton>
+                            </div>
                     }
-                    
-        </div>
-        </IonContent>
+
+                </div>
+            </IonContent>
 
         </IonPage>
     )
