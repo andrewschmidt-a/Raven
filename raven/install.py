@@ -1,15 +1,25 @@
 import frappe
 def after_install():
 	add_standard_navbar_items()
-	create_general_channel()
+	create_default_organization()
+	create_default_general_channel()
 
 
-def create_general_channel():
-    if not frappe.db.exists("Raven Channel", "general"):
+def create_default_organization():
+    if not frappe.db.exists("Raven Organization", "default"):
+        organization = frappe.new_doc("Raven Organization")
+        organization.organization_name = "raven"
+        organization.name = "default"
+        organization.save(ignore_permissions=True)
+        frappe.db.commit()
+
+def create_default_general_channel():
+    if not frappe.db.exists("Raven Channel", {"organization": "default", "name": "general"}):
         channel = frappe.new_doc("Raven Channel")
         channel.channel_name = "General"
         channel.name = "general"
         channel.type = "Open"
+        channel.organization = "default"
         channel.save(ignore_permissions=True)
         frappe.db.commit()
 
