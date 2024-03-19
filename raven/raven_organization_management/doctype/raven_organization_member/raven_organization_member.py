@@ -14,8 +14,18 @@ class RavenOrganizationMember(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		manage_channels: DF.Check
-		manage_chat: DF.Check
+		create_channel: DF.Check
+		create_channel_member: DF.Check
+		create_message: DF.Check
+		create_organization_member: DF.Check
+		delete_channel: DF.Check
+		delete_channel_member: DF.Check
+		delete_message: DF.Check
+		delete_organization_member: DF.Check
+		edit_channel: DF.Check
+		edit_channel_member: DF.Check
+		edit_message: DF.Check
+		edit_organization_member: DF.Check
 		organization: DF.Link
 		role: DF.Link | None
 		user: DF.Link

@@ -9,8 +9,22 @@
   "organization",
   "user",
   "permissions_section",
-  "manage_channels",
-  "manage_chat",
+  "create_channel",
+  "edit_channel",
+  "delete_channel",
+  "column_break_ee8w",
+  "create_message",
+  "edit_message",
+  "delete_message",
+  "column_break_f0km",
+  "create_channel_member",
+  "edit_channel_member",
+  "delete_channel_member",
+  "column_break_mlxv",
+  "create_organization_member",
+  "edit_organization_member",
+  "delete_organization_member",
+  "role_section",
   "role"
  ],
  "fields": [
@@ -36,27 +50,103 @@
    "label": "Permissions"
   },
   {
-   "default": "0",
-   "fieldname": "manage_channels",
-   "fieldtype": "Check",
-   "label": "Manage Channels"
-  },
-  {
-   "default": "0",
-   "fieldname": "manage_chat",
-   "fieldtype": "Check",
-   "label": "Manage Chat"
-  },
-  {
    "fieldname": "role",
    "fieldtype": "Link",
    "label": "Role",
    "options": "Raven Organization Role"
+  },
+  {
+   "default": "0",
+   "fieldname": "create_channel",
+   "fieldtype": "Check",
+   "label": "Create Channel"
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_channel",
+   "fieldtype": "Check",
+   "label": "Edit Channel"
+  },
+  {
+   "default": "0",
+   "fieldname": "delete_channel",
+   "fieldtype": "Check",
+   "label": "Delete Channel"
+  },
+  {
+   "fieldname": "column_break_ee8w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "create_message",
+   "fieldtype": "Check",
+   "label": "Create Message"
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_message",
+   "fieldtype": "Check",
+   "label": "Edit Message"
+  },
+  {
+   "default": "0",
+   "fieldname": "delete_message",
+   "fieldtype": "Check",
+   "label": "Delete Message"
+  },
+  {
+   "fieldname": "column_break_f0km",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "create_channel_member",
+   "fieldtype": "Check",
+   "label": "Create Channel Member"
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_channel_member",
+   "fieldtype": "Check",
+   "label": "Edit Channel Member"
+  },
+  {
+   "default": "0",
+   "fieldname": "delete_channel_member",
+   "fieldtype": "Check",
+   "label": "Delete Channel Member"
+  },
+  {
+   "fieldname": "column_break_mlxv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "create_organization_member",
+   "fieldtype": "Check",
+   "label": "Create Organization Member"
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_organization_member",
+   "fieldtype": "Check",
+   "label": "Edit Organization Member"
+  },
+  {
+   "default": "0",
+   "fieldname": "delete_organization_member",
+   "fieldtype": "Check",
+   "label": "Delete Organization Member"
+  },
+  {
+   "fieldname": "role_section",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-01 16:35:32.687197",
+ "modified": "2024-03-19 20:30:52.282123",
  "modified_by": "Administrator",
  "module": "Raven Organization Management",
  "name": "Raven Organization Member",
