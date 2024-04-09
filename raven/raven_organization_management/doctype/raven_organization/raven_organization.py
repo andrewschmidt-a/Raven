@@ -14,6 +14,7 @@ class RavenOrganization(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
+		organization_icon: DF.AttachImage | None
 		organization_name: DF.Data
 		type: DF.Literal["Public", "Private"]
 	# end: auto-generated types

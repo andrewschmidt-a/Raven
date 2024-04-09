@@ -12,7 +12,7 @@ export interface RavenOrganization{
 	idx?: number
 	/**	Organization Name : Data	*/
 	organization_name: string
-	/**	Organization Icon : Image	*/
+	/**	Organization Icon : Attach Image	*/
 	organization_icon?: string
 	/**	Type : Select	*/
 	type: "Public" | "Private"

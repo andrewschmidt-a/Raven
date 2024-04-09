@@ -1,5 +1,5 @@
 
-export interface RavenChannel {
+export interface RavenChannel{
 	creation: string
 	name: string
 	modified: string

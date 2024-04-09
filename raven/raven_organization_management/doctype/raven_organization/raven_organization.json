@@ -21,7 +21,7 @@
   },
   {
    "fieldname": "organization_icon",
-   "fieldtype": "Image",
+   "fieldtype": "Attach Image",
    "label": "Organization Icon"
   },
   {
@@ -35,7 +35,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-01 16:37:18.706082",
+ "modified": "2024-03-22 17:41:33.727261",
  "modified_by": "Administrator",
  "module": "Raven Organization Management",
  "name": "Raven Organization",

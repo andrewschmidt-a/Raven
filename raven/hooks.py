@@ -18,7 +18,8 @@ app_include_js = "raven.bundle.js"
 
 
 sounds = [
-	{"name": "raven_notification", "src": "/assets/raven/sounds/raven_notification.mp3", "volume": 0.2},
+    {"name": "raven_notification",
+        "src": "/assets/raven/sounds/raven_notification.mp3", "volume": 0.2},
 ]
 
 extend_bootinfo = "raven.boot.boot_session"
@@ -216,6 +217,8 @@ has_permission = {
     "Raven Channel": "raven.permissions.channel_has_permission",
     "Raven Channel Member": "raven.permissions.channel_member_has_permission",
     "Raven Message": "raven.permissions.message_has_permission",
+    "Raven Organization": "raven.permissions.organization_has_permission",
+    "Raven Organization Member": "raven.permissions.organization_member_has_permission",
 }
 
 on_session_creation = "raven.api.user_availability.set_user_active"
