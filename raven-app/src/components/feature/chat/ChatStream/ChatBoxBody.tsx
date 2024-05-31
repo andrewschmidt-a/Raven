@@ -22,7 +22,7 @@ const COOL_PLACEHOLDERS = [
     "Note 🚨: Service beyond the wall is currently disrupted due to bad weather.",
     "Pigeons just have better brand recognition tbh 🤷🏻",
     "Ravens double up as spies. Eyes everywhere 👀",
-    "Ravens do not 'slack' off. See what we did there? 😉",
+    "Ravens do not slack off 😉",
     "Were you expecting a funny placeholder? 😂",
     "Want to know who writes these placeholders? 🤔. No one.",
     "Type a message..."

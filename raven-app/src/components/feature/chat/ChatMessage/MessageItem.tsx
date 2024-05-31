@@ -27,11 +27,12 @@ interface MessageBlockProps {
     setDeleteMessage: (message: Message) => void,
     setEditMessage: (message: Message) => void,
     replyToMessage: (message: Message) => void,
+    forwardMessage: (message: Message) => void,
     onReplyMessageClick: (messageID: string) => void,
     isHighlighted?: boolean
 }
 
-export const MessageItem = ({ message, setDeleteMessage, isHighlighted, onReplyMessageClick, setEditMessage, replyToMessage }: MessageBlockProps) => {
+export const MessageItem = ({ message, setDeleteMessage, isHighlighted, onReplyMessageClick, setEditMessage, replyToMessage, forwardMessage }: MessageBlockProps) => {
 
     const { name, owner: userID, is_bot_message, bot, creation: timestamp, message_reactions, is_continuation, linked_message, replied_message_details } = message
 
@@ -47,6 +48,10 @@ export const MessageItem = ({ message, setDeleteMessage, isHighlighted, onReplyM
 
     const onReply = () => {
         replyToMessage(message)
+    }
+
+    const onForward = () => {
+        forwardMessage(message)
     }
 
     const [isHovered, setIsHovered] = useState(false)
@@ -130,6 +135,7 @@ export const MessageItem = ({ message, setDeleteMessage, isHighlighted, onReplyM
                                 onDelete={onDelete}
                                 onEdit={onEdit}
                                 onReply={onReply}
+                                onForward={onForward}
                             />
                         }
                     </Flex>
@@ -141,6 +147,7 @@ export const MessageItem = ({ message, setDeleteMessage, isHighlighted, onReplyM
                     onDelete={onDelete}
                     onEdit={onEdit}
                     onReply={onReply}
+                    onForward={onForward}
                 />
             </ContextMenu.Root>
         </Box >

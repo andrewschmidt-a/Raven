@@ -8,6 +8,7 @@ import { FlexProps } from "@radix-ui/themes/dist/cjs/components/flex"
 import { clsx } from "clsx"
 import parse from 'html-react-parser';
 import { MdOutlineBarChart } from "react-icons/md"
+import { LuForward } from "react-icons/lu"
 interface ReplyMessageBoxProps extends FlexProps {
     message: Partial<Message>
 }
@@ -23,6 +24,7 @@ export const ReplyMessageBox = ({ message, children, className, ...props }: Repl
         <Flex className={clsx('p-2 items-start bg-white border border-gray-5 shadow-sm dark:bg-gray-1 dark:border-gray-7 rounded-md', className)} {...props}>
             <Flex gap='1' direction='column' className="border-l-2 pl-2 border-gray-8">
                 <Flex gap='2' align='center'>
+                    {/* {message.is_forwarded && <LuForward size='16' />} */}
                     <Text as='span' size='1' weight='medium'>{user?.full_name ?? message.owner}</Text>
                     <Separator orientation='vertical' />
                     <Text as='span' size='1' color='gray'>
