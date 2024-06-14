@@ -7,8 +7,9 @@ const useCurrentRavenUser = () => {
         undefined,
         'my_profile',
         {
-            // revalidateIfStale: false,
+            revalidateIfStale: true,
             revalidateOnFocus: false,
+            dedupingInterval: 1000 * 60 * 15, // 5 minutes
             shouldRetryOnError: false,
             revalidateOnReconnect: true
         }

@@ -93,6 +93,20 @@ function localStorageProvider() {
 
   // Before unloading the app, we write back all the data into `localStorage`.
   window.addEventListener('beforeunload', () => {
+
+    // Exclude certain keys from being stored in localStorage
+    // e.g. user, token, etc.
+    const excludeKeys = ['/api/method/frappe.auth.get_logged_user', 'https://tenor.googleapis.com', 'poll_votes', 'poll_data']
+
+    for (const key of excludeKeys) {
+      // Delete keys that include the excludeKeys
+      map.forEach((value, mapKey) => {
+        if (mapKey.includes(key)) {
+          map.delete(mapKey)
+        }
+      })
+    }
+
     const appCache = JSON.stringify(Array.from(map.entries()))
     localStorage.setItem('app-cache', appCache)
   })

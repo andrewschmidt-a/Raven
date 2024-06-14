@@ -18,21 +18,26 @@ export const UserContext = createContext<UserContextProps>({
 
 export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
 
-    const { mutate } = useSWRConfig()
-    const { logout, currentUser, updateCurrentUser, isLoading } = useFrappeAuth()
+    const { cache } = useSWRConfig()
+    const { logout, currentUser, updateCurrentUser, isLoading } = useFrappeAuth({
+        revalidateIfStale: true,
+        dedupingInterval: 1000 * 60 * 15, // 5 minutes
+    })
 
     const handleLogout = async () => {
         localStorage.removeItem('ravenLastChannel')
         localStorage.removeItem('app-cache')
+
         return logout()
             .then(() => {
                 //Clear cache on logout
-                return mutate((key) => {
-                    if (key === 'raven.api.login.get_context') {
-                        return false
-                    }
-                    return true
-                }, undefined, false)
+                const keys = cache.keys()
+
+                while (true) {
+                    const key = keys.next()
+                    if (key.done) break
+                    cache.delete(key.value)
+                }
             })
             .then(() => {
                 //Reload the page so that the boot info is fetched again
@@ -42,8 +47,6 @@ export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
                 } else {
                     window.location.replace('/login')
                 }
-
-                // window.location.reload()
             })
     }
 
