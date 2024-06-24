@@ -35,7 +35,7 @@ def add_standard_navbar_items():
 
 	raven_navbar_items = [
 		{
-			"item_label": "Raven",
+			"item_label": "Chat",
 			"item_type": "Route",
 			"route": "/raven",
 			"is_standard": 1,

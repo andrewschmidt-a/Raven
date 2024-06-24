@@ -164,7 +164,7 @@ $(document).on('app_ready', function () {
                 let dialog;
                 if (!dialog) {
                   dialog = new frappe.ui.Dialog({
-                    title: __('Send a Raven'),
+                    title: __('Send in Chat'),
                     fields: [
                       {
                         fieldname: 'type',
@@ -219,7 +219,7 @@ $(document).on('app_ready', function () {
                 dialog.show();
               } else {
                 frappe.msgprint({
-                  title: __('Send a Raven'),
+                  title: __('Send in Chat'),
                   indicator: 'blue',
                   message: __('No channels found'),
                 });
@@ -319,7 +319,7 @@ $(document).on('app_ready', function () {
             // check the button is not already added by checking the class name 'send-raven-button'
 
             timeline.add_action_button(
-              __('Send a Raven'),
+              __('Send in Chat'),
               send_raven,
               'share',
               'btn-secondary send-raven-button'
